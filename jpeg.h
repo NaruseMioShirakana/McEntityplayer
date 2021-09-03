@@ -1,7 +1,7 @@
 #ifndef Jpeg_load_S
 #define Jpeg_load_S
-#define Xlimit 1920
-#define Ylimit 1080
+#define Xlimit 1920//定义像素（X）
+#define Ylimit 1080//定义像素（Y）
 
 #include <iostream>
 #include <fstream>
