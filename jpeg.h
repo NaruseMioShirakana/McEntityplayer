@@ -1,6 +1,7 @@
 #ifndef Jpeg_load_S
 #define Jpeg_load_S
-
+#define Xlimit 1920
+#define Ylimit 1080
 
 #include <iostream>
 #include <fstream>
@@ -44,16 +45,16 @@ void Get_Image_pixel_RGB(wstring infilename) { //获取每个像素点的RGB值�
     if (loaded_Image_pixel_data.size() == 0) {
         Image_pixel_data Image_pixel_data_i;
         vector <Image_pixel_data> loaded_Image_pixel_data_out;
-        for (int i = 0; i < 128; i++) {
+        for (int i = 0; i < Xlimit; i++) {
            loaded_Image_pixel_data_out.push_back(Image_pixel_data_i);
         }
-        for (int aaa = 0; aaa < 96; aaa++) {
+        for (int aaa = 0; aaa < Ylimit; aaa++) {
             loaded_Image_pixel_data.push_back(loaded_Image_pixel_data_out);
         }
     }
     Color color;
-    for (UINT y = 0; y < 96; y++) {
-        for (UINT x = 0; x < 128; x++) {
+    for (UINT y = 0; y < Ylimit; y++) {
+        for (UINT x = 0; x < Xlimit; x++) {
             bmp->GetPixel(x, y, &color);
             loaded_Image_pixel_data[y][x].IPDR = (int)color.GetRed();
             loaded_Image_pixel_data[y][x].IPDG = (int)color.GetGreen();
